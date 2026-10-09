@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+function Register() {
+    const [name, setName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [age, setAge] = React.useState("");
+    const [message, setMessage] = React.useState("");
+
+    function submit(e) {
+        e.preventDefault();
+
+        if (name === "" || email === "" || age === "") {
+            setMessage("All fields are required");
+        } else if (age < 18) {
+            setMessage("Age must be 18 or above");
+        } else {
+            setMessage("Registration Successful");
+        }
+    }
+
+    return (
+        <form onSubmit={submit}>
+            <h2>Registration Form</h2>
+
+            <input placeholder="Name"
+                onChange={(e) => setName(e.target.value)} /><br /><br />
+
+            <input placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)} /><br /><br />
+
+            <input type="number" placeholder="Age"
+                onChange={(e) => setAge(e.target.value)} /><br /><br />
+
+            <button>Register</button>
+            <p>{message}</p>
+        </form>
+    );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Register />);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Validation</title>
+</head>
+<body>
+
+<h2>Password Validation</h2>
+
+<form onsubmit="return validate()">
+
+    Password:
+    <input type="password" id="password">
+    <br><br>
+
+    <input type="submit" value="Login">
+
+</form>
+
+<script>
+function validate() {
+
+    var password = document.getElementById("password").value;
+
+    if (password == "") {
+        alert("Password is required");
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert("Password must contain at least 6 characters");
+        return false;
+    }
+
+    alert("Valid Password");
+    return true;
+}
+</script>
+
+</body>
+</html>

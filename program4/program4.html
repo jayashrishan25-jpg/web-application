@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+</head>
+<body>
+
+<h2>Counter</h2>
+
+<p id="count">0</p>
+
+<button onclick="increase()">Increase</button>
+<button onclick="decrease()">Decrease</button>
+
+<script>
+
+var number = 0;
+
+function increase() {
+    number++;
+    document.getElementById("count").innerHTML = number;
+}
+
+function decrease() {
+    number--;
+    document.getElementById("count").innerHTML = number;
+}
+
+</script>
+
+</body>
+</html>

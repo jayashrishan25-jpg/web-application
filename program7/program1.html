@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+function Registration() {
+    const [name, setName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [message, setMessage] = React.useState("");
+
+    function submitForm(e) {
+        e.preventDefault();
+
+        if (name === "" || email === "") {
+            setMessage("Please fill all fields");
+        } else {
+            setMessage("Registration Successful");
+        }
+    }
+
+    return (
+        <form onSubmit={submitForm}>
+            <h2>Registration Form</h2>
+
+            <input
+                placeholder="Name"
+                onChange={(e) => setName(e.target.value)}
+            /><br /><br />
+
+            <input
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+            /><br /><br />
+
+            <button type="submit">Register</button>
+            <p>{message}</p>
+        </form>
+    );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Registration />);
+</script>
+
+</body>
+</html>
